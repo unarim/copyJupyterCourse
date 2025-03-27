@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Interactive Multiple-Choice Quiz with Feedback options with MyBinder &#8212; Creating Educational Content with Jupyter Books</title>
+    <title>Multiple-Choice Quizzes with Feedback &#8212; Creating Educational Content with Jupyter Books</title>
   
   
   
@@ -69,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Wrapping Up: Key Takeaways and Next Steps" href="../../general-information/wrap-up.html" />
+    <link rel="next" title="Open Ended Questions with Feedback" href="create_oeq.html" />
     <link rel="prev" title="Making Your Book Truly Interactive" href="interactive2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -197,7 +197,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="interactive2.html">Making Your Book Truly Interactive</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Interactive Multiple-Choice Quiz with Feedback options with MyBinder</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Multiple-Choice Quizzes with Feedback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_oeq.html">Open Ended Questions with Feedback</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../general-information/wrap-up.html">Wrapping Up: Key Takeaways and Next Steps</a></li>
@@ -463,7 +464,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Interactive Multiple-Choice Quiz with Feedback options with MyBinder</h1>
+    <h1>Multiple-Choice Quizzes with Feedback</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -494,8 +495,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="interactive-multiple-choice-quiz-with-feedback-options-with-mybinder">
-<h1>Interactive Multiple-Choice Quiz with Feedback options with MyBinder<a class="headerlink" href="#interactive-multiple-choice-quiz-with-feedback-options-with-mybinder" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="multiple-choice-quizzes-with-feedback">
+<h1>Multiple-Choice Quizzes with Feedback<a class="headerlink" href="#multiple-choice-quizzes-with-feedback" title="Permalink to this heading">#</a></h1>
 <p>In this section, you will create <strong>interactive multiple-choice questions</strong> using a simple Python code, publish them to <strong>GitHub</strong>, and launch them via <strong>MyBinder</strong> using shareable links!</p>
 <section id="objectives">
 <h2>Objectives 📍<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
@@ -506,7 +507,7 @@ document.write(`
 <li><p>Launch your quizzes using <strong>Voila</strong> on <strong>MyBinder</strong></p></li>
 </ul>
 <p>At the end, you should be able to create something like this:</p>
-<p>[👉 Lauch Quiz on MyBinder] (<a class="reference external" href="https://mybinder.org/v2/gh/unarim/copyJupyterCourse/main/?urlpath=voila%2Frender%2Finteractives%2FMCQ_feedback.ipynb">https://mybinder.org/v2/gh/unarim/copyJupyterCourse/main/?urlpath=voila%2Frender%2Finteractives%2FMCQ_feedback.ipynb</a>)</p>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/unarim/copyJupyterCourse/main/?urlpath=voila%2Frender%2Finteractives%2FMCQ_feedback.ipynb">👉 Lauch Quiz on MyBinder</a></p>
 </section>
 <section id="instructions">
 <h2><strong>Instructions</strong><a class="headerlink" href="#instructions" title="Permalink to this heading">#</a></h2>
@@ -600,7 +601,7 @@ document.write(`
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">]</span>
-<span class="c1">########### This code block defines a custom CSS to visually enhance how multiple choice questions and feedback messages look. #################</span>
+<span class="c1">######### This code block defines a custom CSS to visually enhance how multiple choice questions and feedback messages look. #########</span>
 <span class="n">custom_css</span> <span class="o">=</span> <span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;style&gt;</span>
 <span class="s2">    .questions-container {</span>
@@ -656,7 +657,7 @@ document.write(`
 <span class="s2">    }</span>
 <span class="s2">&lt;/style&gt;</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
-<span class="c1">######################################################################################################################################################</span>
+<span class="c1">####################################################################</span>
 <span class="n">question_widgets</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">quiz_data</span><span class="p">:</span>
     <span class="n">prompt_html</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span>
@@ -722,10 +723,11 @@ document.write(`
 </section>
 <section id="step-3-add-the-notebook-to-github">
 <h3>Step 3: Add the Notebook to GitHub<a class="headerlink" href="#step-3-add-the-notebook-to-github" title="Permalink to this heading">#</a></h3>
+<p><strong>Optional:</strong> Create markdown cells above the code to provide intructions additional information</p>
 <ol class="arabic simple">
 <li><p>Save the notebook as <code class="docutils literal notranslate"><span class="pre">mcq.ipynb</span></code> (or any other name).</p></li>
 <li><p>Place it inside the <code class="docutils literal notranslate"><span class="pre">interactives</span></code> folder in your GitHub repository.</p></li>
-<li><p>Commit and push to GitHub.</p></li>
+<li><p><strong>Commit</strong> and <strong>push</strong> to GitHub.</p></li>
 </ol>
 </section>
 <section id="step-4-create-the-mybinder-link">
@@ -803,11 +805,11 @@ ipywidgets
       </div>
     </a>
     <a class="right-next"
-       href="../../general-information/wrap-up.html"
+       href="create_oeq.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Wrapping Up: Key Takeaways and Next Steps</p>
+        <p class="prev-next-title">Open Ended Questions with Feedback</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
