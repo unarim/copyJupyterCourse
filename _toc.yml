@@ -24,7 +24,9 @@ parts:
     - file: content/3_create/media
     - file: content/3_create/citations
     - file: content/3_create/setup-files
-  - file: content/3_create/interactive2  
+  - file: content/3_create/interactive2
+    sections:
+    - file: content/3_create/create_mcq
   - file: general-information/wrap-up
 - caption: Additional Material
   chapters:
