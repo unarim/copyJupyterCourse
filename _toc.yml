@@ -27,6 +27,7 @@ parts:
   - file: content/3_create/interactive2
     sections:
     - file: content/3_create/create_mcq
+    - file: content/3_create/create_oeq
   - file: general-information/wrap-up
 - caption: Additional Material
   chapters:
