@@ -69,8 +69,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Organizing Content With the Table of Contents" href="setup-files.html" />
-    <link rel="prev" title="Adding Citations and Bibliographies" href="citations.html" />
+    <link rel="next" title="Wrapping Up: Key Takeaways and Next Steps" href="../../general-information/wrap-up.html" />
+    <link rel="prev" title="Organizing Content With the Table of Contents" href="setup-files.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -189,14 +189,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../2_host/troubleshooting.html">Troubleshooting</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Creating Engaging Content</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="intro.html">Creating Engaging Content</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="markdown.html">Formatting Content With Markdown</a></li>
 <li class="toctree-l2"><a class="reference internal" href="media.html">Integrating Media Into Your Content</a></li>
 <li class="toctree-l2"><a class="reference internal" href="citations.html">Adding Citations and Bibliographies</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Making Your Book Truly Interactive</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup-files.html">Organizing Content With the Table of Contents</a></li>
 </ul>
 </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Making Your Book Truly Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../general-information/wrap-up.html">Wrapping Up: Key Takeaways and Next Steps</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Material</span></p>
@@ -471,21 +471,22 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives 📍</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-limitations-github-pages">The Limitations GitHub Pages 🚧</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enter-mybinder-making-github-hosted-notebooks-interactive">Enter MyBinder: Making GitHub-Hosted Notebooks Interactive 🛠️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-limitations-github-pages">The Limitations GitHub Pages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enter-mybinder">Enter MyBinder</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-mybinder-enhances-interactivity">How MyBinder Enhances Interactivity 🔄</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-create-a-mybinder-link-for-github-hosted-jupyter-notebooks">How to Create a MyBinder Link for GitHub-hosted Jupyter Notebooks</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-create-a-mybinder-link">How to Create a MyBinder Link</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-mybinder-environment">1. Setting up the MyBinder environment</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-the-config-yml">2. Changing the <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-approach-isnt-always-ideal">Why This Approach Isn’t Always Ideal ⚠️</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-isnt-always-ideal">Why This Isn’t Always Ideal ⚠️</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-better-practice-use-standalone-interactive-notebooks-for-specific-tasks">A Better Practice: Use Standalone Interactive Notebooks for Specific Tasks 🎯</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#below-you-will-find-demonstrations-for-the-types-of-interactive-possible-to-create">Below you will find demonstrations for the types of interactive possible to create:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#below-are-demonstrations-of-the-types-of-interactivity-it-is-possible-to-create">Below are demonstrations of the types of interactivity it is possible to create:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-quizzes-with-feedback">Interactive Quizzes with Feedback 🧠</a></li>
 </ul>
             </nav>
         </div>
@@ -511,7 +512,7 @@ document.write(`
 <li><p><strong>Use interactivity</strong> to make content more personalized and effective</p></li>
 </ul>
 <section id="the-limitations-github-pages">
-<h3>The Limitations GitHub Pages 🚧<a class="headerlink" href="#the-limitations-github-pages" title="Permalink to this heading">#</a></h3>
+<h3>The Limitations GitHub Pages<a class="headerlink" href="#the-limitations-github-pages" title="Permalink to this heading">#</a></h3>
 <p>While GitHub Pages is a powerful way to host educational resources, it is fundamentally a <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">site</span> <span class="pre">generator</span></code>. This means it can render and display <code class="docutils literal notranslate"><span class="pre">HTML</span></code>, <code class="docutils literal notranslate"><span class="pre">Markdown</span></code>, <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Books</span></code>, and and other <code class="docutils literal notranslate"><span class="pre">media</span></code>, but only in <strong>static form</strong>. It cannot execute a code or respond to user input in real time.</p>
 <ul class="simple">
 <li><p><strong>Code cells</strong> cannot run directly on a GitHub Pages site.</p></li>
@@ -520,8 +521,8 @@ document.write(`
 </ul>
 <p>This limitation can be a barrier to effective engagement, especially when learners need to test code, manipulate inputs, or receive personalized feedback based on their answers.</p>
 </section>
-<section id="enter-mybinder-making-github-hosted-notebooks-interactive">
-<h3>Enter MyBinder: Making GitHub-Hosted Notebooks Interactive 🛠️<a class="headerlink" href="#enter-mybinder-making-github-hosted-notebooks-interactive" title="Permalink to this heading">#</a></h3>
+<section id="enter-mybinder">
+<h3>Enter MyBinder<a class="headerlink" href="#enter-mybinder" title="Permalink to this heading">#</a></h3>
 <p>To overcome the limitations of static sites, <mark><strong>MyBinder</strong></mark> provides an elegant solution.</p>
 <p>MyBinder is a free and open-source service that runs on Jupyter Notebooks <strong>without requiring any local installation</strong>. It allows users to create share <strong>live</strong> versions of notebooks for delivering interactive learning activities. You can configure MyBinder with a specific environment, datasets, and code to ensure reproducibility.</p>
 <p>MyBinder enables:</p>
@@ -544,8 +545,8 @@ document.write(`
 <p>These interactive elements can be placed in your Jupyter Book and will work seamlessly when launched through MyBinder, enabling fully interactive learning sessions directly in the browser.</p>
 </section>
 </section>
-<section id="how-to-create-a-mybinder-link-for-github-hosted-jupyter-notebooks">
-<h2>How to Create a MyBinder Link for GitHub-hosted Jupyter Notebooks<a class="headerlink" href="#how-to-create-a-mybinder-link-for-github-hosted-jupyter-notebooks" title="Permalink to this heading">#</a></h2>
+<section id="how-to-create-a-mybinder-link">
+<h2>How to Create a MyBinder Link<a class="headerlink" href="#how-to-create-a-mybinder-link" title="Permalink to this heading">#</a></h2>
 <p>One of the most powerful features of Jupyter Book is the ability to integrate MyBinder, letting readers run code from the book’s pages with no local setup required.</p>
 <p>Below is a step-by-step guide to setting up MyBinder — and why you may want to do so selectively.</p>
 <section id="setting-up-the-mybinder-environment">
@@ -574,8 +575,8 @@ The badge is a clickable image that opens the environment when clicked. You can 
 <p>Now, both the <code class="docutils literal notranslate"><span class="pre">Binder</span></code>- and <code class="docutils literal notranslate"><span class="pre">Live</span> <span class="pre">Code</span></code> Badge are displayed on your Book and you should be good to go!</p>
 </section>
 </section>
-<section id="why-this-approach-isnt-always-ideal">
-<h2>Why This Approach Isn’t Always Ideal ⚠️<a class="headerlink" href="#why-this-approach-isnt-always-ideal" title="Permalink to this heading">#</a></h2>
+<section id="why-this-isnt-always-ideal">
+<h2>Why This Isn’t Always Ideal ⚠️<a class="headerlink" href="#why-this-isnt-always-ideal" title="Permalink to this heading">#</a></h2>
 <p>Although making your entire book interactive with Binder is powerful, it also has significant downsides that can affect user experience, performance, and scalability:</p>
 <p>❌ <strong>1. Binder Can Be Slow and Unreliable</strong></p>
 <ul class="simple">
@@ -613,11 +614,15 @@ The badge is a clickable image that opens the environment when clicked. You can 
 <li><p>Interactive simulations or visualizations</p></li>
 </ul>
 <p>By keeping your main book static and only linking to Binder for specific, high-value interactive experiences, you achieve better performance, lower confusion, and targeted engagement — making for an overall more effective learning environment.</p>
-<section id="below-you-will-find-demonstrations-for-the-types-of-interactive-possible-to-create">
-<h3>Below you will find demonstrations for the types of interactive possible to create:<a class="headerlink" href="#below-you-will-find-demonstrations-for-the-types-of-interactive-possible-to-create" title="Permalink to this heading">#</a></h3>
-<p><a class="reference external" href="https://mybinder.org/v2/gh/unarim/copyJupyterCourse/main/?urlpath=voila%2Frender%2Finteractives%2FmathDemo.ipynb">🚀 Quadratic Equation Demo</a></p>
-<p><a class="reference external" href="https://mybinder.org/v2/gh/unarim/copyJupyterCourse/main/?urlpath=voila%2Frender%2Finteractives%2FvisualSearch.ipynb">🚀 Visual Search Paradigm Demo</a></p>
+<section id="below-are-demonstrations-of-the-types-of-interactivity-it-is-possible-to-create">
+<h3>Below are demonstrations of the types of interactivity it is possible to create:<a class="headerlink" href="#below-are-demonstrations-of-the-types-of-interactivity-it-is-possible-to-create" title="Permalink to this heading">#</a></h3>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/unarim/copyJupyterCourse/main/?urlpath=voila%2Frender%2Finteractives%2FmathDemo.ipynb">🚀 Quadratic Equation Demo on Binder</a></p>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/unarim/copyJupyterCourse/main/?urlpath=voila%2Frender%2Finteractives%2FvisualSearch.ipynb">🚀 Visual Search Paradigm Demo on Binder</a></p>
 </section>
+</section>
+<section id="interactive-quizzes-with-feedback">
+<h2>Interactive Quizzes with Feedback 🧠<a class="headerlink" href="#interactive-quizzes-with-feedback" title="Permalink to this heading">#</a></h2>
+<p>In the next section, we will learn how to create multiple-choice quizzes with interactive feedback.</p>
 </section>
 </section>
 
@@ -652,20 +657,20 @@ The badge is a clickable image that opens the environment when clicked. You can 
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="citations.html"
+       href="setup-files.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Adding Citations and Bibliographies</p>
+        <p class="prev-next-title">Organizing Content With the Table of Contents</p>
       </div>
     </a>
     <a class="right-next"
-       href="setup-files.html"
+       href="../../general-information/wrap-up.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Organizing Content With the Table of Contents</p>
+        <p class="prev-next-title">Wrapping Up: Key Takeaways and Next Steps</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -685,21 +690,22 @@ The badge is a clickable image that opens the environment when clicked. You can 
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives 📍</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-limitations-github-pages">The Limitations GitHub Pages 🚧</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enter-mybinder-making-github-hosted-notebooks-interactive">Enter MyBinder: Making GitHub-Hosted Notebooks Interactive 🛠️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-limitations-github-pages">The Limitations GitHub Pages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enter-mybinder">Enter MyBinder</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-mybinder-enhances-interactivity">How MyBinder Enhances Interactivity 🔄</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-create-a-mybinder-link-for-github-hosted-jupyter-notebooks">How to Create a MyBinder Link for GitHub-hosted Jupyter Notebooks</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-create-a-mybinder-link">How to Create a MyBinder Link</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-mybinder-environment">1. Setting up the MyBinder environment</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-the-config-yml">2. Changing the <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-approach-isnt-always-ideal">Why This Approach Isn’t Always Ideal ⚠️</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-isnt-always-ideal">Why This Isn’t Always Ideal ⚠️</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-better-practice-use-standalone-interactive-notebooks-for-specific-tasks">A Better Practice: Use Standalone Interactive Notebooks for Specific Tasks 🎯</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#below-you-will-find-demonstrations-for-the-types-of-interactive-possible-to-create">Below you will find demonstrations for the types of interactive possible to create:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#below-are-demonstrations-of-the-types-of-interactivity-it-is-possible-to-create">Below are demonstrations of the types of interactivity it is possible to create:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-quizzes-with-feedback">Interactive Quizzes with Feedback 🧠</a></li>
 </ul>
   </nav></div>
 

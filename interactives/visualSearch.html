@@ -191,10 +191,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../content/3_create/markdown.html">Formatting Content With Markdown</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../content/3_create/media.html">Integrating Media Into Your Content</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../content/3_create/citations.html">Adding Citations and Bibliographies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../content/3_create/interactive2.html">Making Your Book Truly Interactive</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../content/3_create/setup-files.html">Organizing Content With the Table of Contents</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../content/3_create/interactive2.html">Making Your Book Truly Interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../general-information/wrap-up.html">Wrapping Up: Key Takeaways and Next Steps</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Material</span></p>
@@ -568,6 +568,17 @@ document.write(`
     <span class="k">with</span> <span class="n">output</span><span class="p">:</span>
         <span class="n">clear_output</span><span class="p">()</span>
         <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">results_html</span><span class="p">))</span>
+        <span class="n">start_again_btn</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Start Again&quot;</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;success&#39;</span><span class="p">)</span>
+        <span class="n">start_again_btn</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="n">restart_task</span><span class="p">())</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">start_again_btn</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">restart_task</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">trial_index</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">trials</span>
+    <span class="n">trial_index</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">trials</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;present&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;absent&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">trials</span><span class="p">)</span>
+    <span class="n">show_instructions</span><span class="p">()</span>
 
 <span class="c1"># Launch the task</span>
 <span class="n">show_instructions</span><span class="p">()</span>
@@ -575,7 +586,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "33fe35a4f1e14a198b18787e3ccdf95e", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b58d1fdf27e9419d9ed6ca382738807e", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 
