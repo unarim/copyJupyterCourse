@@ -1,0 +1,745 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Setup: Before Creating Content &#8212; Creating Educational Content with Jupyter Books</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'setup';</script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="general-information/index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Creating Educational Content with Jupyter Books - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Creating Educational Content with Jupyter Books - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="general-information/index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="general-information/overview.html">Course Overview &amp; Procedure</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Creating Interactive Content With Jupyter Books</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="general-information/whyjb.html">Why Jupyter Books? An Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="content/1_github/intro.html">Getting Started With GitHub</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/1_github/account.html">Setting Up a GitHub Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/1_github/project.html">Creating Your Course Repository on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/1_github/template.html">Exploring and Customizing the Template Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="content/2_host/host_website.html">Hosting Your Course Website</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/2_host/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="content/3_create/intro.html">Creating Engaging Content</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/3_create/markdown.html">Formatting Content With Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/3_create/media.html">Integrating Media Into Your Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/3_create/citations.html">Adding Citations and Bibliographies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/3_create/interactive.html">Making Your Book Truly Interactive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content/3_create/setup-files.html">Organizing Content With the Table of Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="general-information/wrap-up.html">Wrapping Up: Key Takeaways and Next Steps</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Material</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="content/4_additional/quick_tutorial.html">Quick Setup Guide for Deploying Courses using Jupyter Book on Github</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="resources/info.html">Resources</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="resources/CoC.html">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resources/dei.html">Diversity, Equity, and Inclusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resources/open_science.html">Open Science</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="resources/demo.html">Further courses under the DiLER project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/tutorial_jupyter_books" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/tutorial_jupyter_books/edit/main/docs/setup.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/tutorial_jupyter_books/issues/new?title=Issue%20on%20page%20%2Fsetup.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/setup.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Setup: Before Creating Content</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-things">General things</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-quick-general-notes-on-instructions">Some quick general notes on instructions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-specific-installation-instructions">OS-specific installation instructions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-account">GitHub account</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enter-the-matrix">Enter the matrix</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-section">Next Section:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="setup-before-creating-content">
+<h1>Setup: Before Creating Content<a class="headerlink" href="#setup-before-creating-content" title="Permalink to this heading">#</a></h1>
+<p>Fortunately and unfortunately, committing to open-source projects usually requires more in-depth knowledge than just pushing some slides onto Dropbox and sending a link to your students.</p>
+<p>To replicate the showcased websites here, we’ll therefore be using some tools you might not be familiar with. The following section will illustrate precisely what we need, how to install the necessary tools, and where to go for further information.</p>
+<p><strong>We’ll need the following:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://conda-forge.org/"><strong>Conda</strong></a> (For managing environments)</p></li>
+<li><p><a class="reference external" href="https://git-scm.com"><strong>Git</strong></a> (Version Control)</p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/"><strong>Visual Studio Code</strong></a> (Text-based Editor)</p></li>
+<li><p><a class="reference external" href="https://jupyter.org/"><strong>Jupyter</strong></a> (Foundation for mixed Code/ Markdown documents)</p></li>
+<li><p>a <a class="reference external" href="https://github.com/"><strong>Github</strong></a> account (Hosting courses)</p></li>
+<li><p><a class="reference external" href="https://jupyterbook.org/en/stable/intro.html"><strong>Jupyter book</strong></a> (Foundation creating content)</p></li>
+<li><p><a class="reference external" href="https://nbgrader.readthedocs.io/en/stable/"><strong>nbgrader</strong></a> (automated grading)</p></li>
+</ul>
+<p>Helpful tools that are not strictly necessary but can be quite useful or make your life easier:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.gitkraken.com/">GitKraken</a> (A Graphical User-Interface for the Git-version control system; Simplye downlowad and install the <a class="reference external" href="https://help.gitkraken.com/gitkraken-client/how-to-install/">Gitkraken client</a> and <a class="reference external" href="https://www.youtube.com/watch?v=5nhNfMcczlQ">conncet it to your online Github profile</a>.)</p></li>
+</ul>
+<p>If you want to provide interactive online content, you may use:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://mybinder.org/">MyBinder</a> (Find more info in the section: <span class="xref myst">Creating interactive content</span>)</p></li>
+</ul>
+<section id="general-things">
+<h2>General things<a class="headerlink" href="#general-things" title="Permalink to this heading">#</a></h2>
+<p>If you foresee any of these being a problem, please contact one of the instructors and enquire what steps you can take to ensure your setup is ready for the course.</p>
+<p>You’ll find the (hopefully) comprehensive set of install instructions below. The rest of this page provides more detail on installation procedures for each of the above elements, with separate instructions for each of the three major operating systems (<code class="docutils literal notranslate"><span class="pre">Windows</span></code>, <code class="docutils literal notranslate"><span class="pre">Mac</span> <span class="pre">OS</span></code>, and <code class="docutils literal notranslate"><span class="pre">Linux</span></code>).</p>
+<section id="some-quick-general-notes-on-instructions">
+<h3>Some quick general notes on instructions<a class="headerlink" href="#some-quick-general-notes-on-instructions" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>There is no difference between <code class="docutils literal notranslate"><span class="pre">Enter</span></code> and <code class="docutils literal notranslate"><span class="pre">Return</span></code> in these instructions, so just press whatever the equivalent on your keyboard is whenever one is stated</p></li>
+<li><p>If you already have some of these things installed on your computer already, that should (theoretically) be okay.
+However, you need to ensure that you can complete the steps described in <span class="xref myst">checking your install</span> without issue.</p>
+<ul>
+<li><p>For example, having multiple different <code class="docutils literal notranslate"><span class="pre">Python</span></code> installations on your computer can lead to incredibly frustrating issues that are very difficult to debug.
+As such, if you have already installed <code class="docutils literal notranslate"><span class="pre">Python</span></code> via some other application (not <code class="docutils literal notranslate"><span class="pre">Miniconda</span></code>/<code class="docutils literal notranslate"><span class="pre">Anaconda</span></code>), it’s strongly encouraged to uninstall it before following the instructions below.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="os-specific-installation-instructions">
+<h3>OS-specific installation instructions<a class="headerlink" href="#os-specific-installation-instructions" title="Permalink to this heading">#</a></h3>
+<p>Select the tab that corresponds to your operating system and follow the instructions therein.</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Windows</label><div class="tab-content docutils">
+<p><strong>Conda</strong></p>
+<ol class="arabic simple">
+<li><p>Download and execute the .exe file from the <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">official website</a></p></li>
+<li><p>An installation window will pop up; go ahead and click through it and install it into the suggested default directory.</p></li>
+</ol>
+<p>Or follow the official <a class="reference external" href="https://conda.io/projects/conda/en/stable/user-guide/install/windows.html">installation guide</a></p>
+<p><strong>Jupyter, Jupyter Book and nbgrader</strong></p>
+<ol class="arabic simple">
+<li><p>Press “Windows” and Search for “Anaconda Powershell Prompt”</p></li>
+<li><p>Paste the following commands into the opened terminal:</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">jupyter-book</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">nbgrader</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">jupyter</span></code></p></li>
+</ul>
+<p><strong>Git</strong></p>
+<p>Download the respective version for your system from the <a class="reference external" href="https://git-scm.com">official website</a> and run the .exe file. Now, you should be good to go.
+As Git can be quite confusing for new users, you may also want to install a GUI (graphical user interface) that makes it somewhat easier to interact and illustrate what git is actually doing/supposed to do, such as  <a class="reference external" href="https://www.gitkraken.com/">Gitkraken</a>.</p>
+<p><strong>VSCode</strong></p>
+<ol class="arabic simple">
+<li><p>Go to <a class="reference external" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a> and click the download button, then run the <code class="docutils literal notranslate"><span class="pre">.exe</span></code> file.</p></li>
+<li><p>Leave all the defaults during the installation with the following exception:</p>
+<ul class="simple">
+<li><p>Please make sure the box labeled “Register Code as an editor for supported file types” is selected</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>VSCode extensions</strong></p>
+<ol class="arabic simple">
+<li><p>Open VSCode</p></li>
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code> in the new window that opens and type “Extensions: Install extensions” into the search bar that appears at the top of the screen.
+Select the appropriate entry from the dropdown menu that appears (there should be four entries; simply select the one that reads “Extensions: Install extensions”).</p></li>
+<li><p>A new panel with a search bar should appear on the left-hand side of the screen.
+Search for each of the following extensions and press <code class="docutils literal notranslate"><span class="pre">Install</span></code> for the first entry that appears. (The author listed for all of these extensions should be “Microsoft.”)</p>
+<ul class="simple">
+<li><p>Python (n.b., you will need to reload VSCode after installing this)</p></li>
+<li><p>Jupyter</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">Linux</label><div class="tab-content docutils">
+<p><strong>Conda</strong></p>
+<ol class="arabic simple">
+<li><p>You most likely already have a working setup but feel free to download the appropriate file for your system from the <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">official website</a> and follow the <a class="reference external" href="https://conda.io/projects/conda/en/stable/user-guide/install/linux.html">installation institutions</a>
+.</p></li>
+</ol>
+<p><strong>Jupyter, Jupyter Book and nbgrader</strong></p>
+<ol class="arabic simple">
+<li><p>Open a terminal</p></li>
+<li><p>Paste the following commands into the opened terminal:</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">jupyter-book</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">nbgrader</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">jupyter</span></code></p></li>
+</ul>
+<p><strong>Git</strong></p>
+<p>You may already have it; try opening a terminal and typing <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">git</span></code> (Ubuntu, Debian) or <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">git</span></code> (Fedora) inside the terminal.
+If you are prompted to install it, follow the instructions on-screen.</p>
+<p><strong>VSCode</strong></p>
+<ol class="arabic simple">
+<li><p>Go to <a class="reference external" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a> and click the download button for the .deb (Ubuntu, Debian) or the .rpm (Fedora, CentOS) file.</p></li>
+<li><p>Double-click the downloaded file to install VSCode.
+(You may be prompted to type your administrator password during the installation.)</p></li>
+</ol>
+<p><strong>VSCode extensions</strong></p>
+<ol class="arabic simple">
+<li><p>Open the Visual Studio Code application.</p></li>
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code> in the new window that opens and type “Extensions: Install extensions” into the search bar that appears at the top of the screen.
+Select the appropriate entry from the dropdown menu that appears (there should be four entries; simply select the one that reads “Extensions: Install extensions”).</p></li>
+<li><p>A new panel with a search bar should appear on the left-hand side of the screen.
+Search for each of the following extensions and press <code class="docutils literal notranslate"><span class="pre">Install</span></code> for the first entry that appears. (The author listed for all of these extensions should be “Microsoft.”)</p>
+<ul class="simple">
+<li><p>Python (n.b., you will need to reload VSCode after installing this)</p></li>
+<li><p>Jupyter</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">MacOS</label><div class="tab-content docutils">
+<p><strong>Conda</strong></p>
+<ol class="arabic simple">
+<li><p>Download and execute the appropriate file from the <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">official website</a></p></li>
+<li><p>Open a terminal at the location of the downloaded file and run: <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">Miniconda3-latest-MacOSX-x86_64.sh.</span></code></p></li>
+</ol>
+<p>Or follow the official <a class="reference external" href="https://conda.io/projects/conda/en/stable/user-guide/install/windows.html">installation guide</a></p>
+<p><strong>Jupyter, Jupyter Book and nbgrader</strong></p>
+<ol class="arabic simple">
+<li><p>Open a terminal</p></li>
+<li><p>Paste the following commands into the opened terminal:</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">jupyter-book</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">nbgrader</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">jupyter</span></code></p></li>
+</ul>
+<p><strong>Git</strong></p>
+<p>You may already have it!
+Try opening a terminal and typing <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">--version.</span></code>
+If you do not see something like “git version X.XX.X” printed out, then follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Follow <a class="reference external" href="https://sourceforge.net/projects/git-osx-installer/files/git-2.23.0-intel-universal-mavericks.dmg/download?use_mirror=autoselect">this link</a> to automatically download an installer.</p></li>
+<li><p>Double click the downloaded file (<code class="docutils literal notranslate"><span class="pre">git-2.23.0-intel-universal-mavericks.dmg</span></code>) and then double click the <code class="docutils literal notranslate"><span class="pre">git-2.23.0-intel-universal-mavericks.pkg</span></code> icon inside the dmg that is opened.</p></li>
+<li><p>Follow the on-screen instructions to install the package.</p></li>
+</ol>
+<p><strong>VSCode</strong></p>
+<ol class="arabic simple">
+<li><p>Go to <a class="reference external" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a> and click the download button.</p></li>
+<li><p>Unzip the downloaded file (e.g., <code class="docutils literal notranslate"><span class="pre">VSCode-darwin-stable.zip</span></code>) and move the resulting <code class="docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">Code</span></code> file to your Applications directory.</p></li>
+</ol>
+<p><strong>VSCode extensions</strong></p>
+<ol class="arabic simple">
+<li><p>Open the Visual Studio Code application</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">Cmd+Shift+P</span></code> and then enter “Shell command: Install ‘code’ command in PATH” into the search bar that appears at the top of the screen.
+Select the highlighted entry.
+A notification box should appear in the bottom-right corner, indicating that the command was installed successfully.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">Cmd+Shift+P</span></code> again and then enter “Extensions: Install extensions” into the search bar.
+Select the appropriate entry from the dropdown menu that appears (there should be four entries; simply select the one that reads “Extensions: Install extensions”).</p></li>
+<li><p>A new panel with a search bar should appear on the left-hand side of the screen.
+Search for each of the following extensions and press <code class="docutils literal notranslate"><span class="pre">Install</span></code> for the first entry that appears. (The author listed for all of these extensions should be “Microsoft.”)</p>
+<ul class="simple">
+<li><p>Python (n.b., you will need to reload VSCode after installing this)</p></li>
+<li><p>Jupyter</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<p><strong>Note</strong>: If the instructions aren’t working and you have spent more than 15-20 minutes troubleshooting on your own, reach out on the #help-installation channel on the Discord channel with the exact problems you’re having.
+One of the instructors will try to get back to you quickly to help resolve the situation.
+If they’re unable to help via <code class="docutils literal notranslate"><span class="pre">Discord,</span></code> you may be directed to attend one of the installation office hours.</p>
+</section>
+<section id="github-account">
+<h3>GitHub account<a class="headerlink" href="#github-account" title="Permalink to this heading">#</a></h3>
+<p>Go to <a class="github reference external" href="https://github.com/join/">join/</a> and follow the on-screen instructions to create an account.
+It is a good idea to associate this with your university e-mail (if you have one) as this will entitle you to sign up for the <a class="reference external" href="https://education.github.com/pack">GitHub Student Developer Pack</a>, which comes with some nice free bonuses.</p>
+</section>
+<section id="enter-the-matrix">
+<h3>Enter the matrix<a class="headerlink" href="#enter-the-matrix" title="Permalink to this heading">#</a></h3>
+<p>Once you reach this point, you should be ready to enter the matrix and follow the course in your preferred way. Congrats, fantastic work!</p>
+<p><img alt="logo" src="https://media1.tenor.com/images/e5c21d98f56c4af119b4e14b6a9df893/tenor.gif?itemid=4011236" /><br />
+<sub><sup><sub><sup><a class="reference external" href="https://media1.tenor.com/images/e5c21d98f56c4af119b4e14b6a9df893/tenor.gif?itemid=4011236">https://media1.tenor.com/images/e5c21d98f56c4af119b4e14b6a9df893/tenor.gif?itemid=4011236</a></sup></sub></sup></sub></p>
+</section>
+</section>
+<section id="next-section">
+<h2>Next Section:<a class="headerlink" href="#next-section" title="Permalink to this heading">#</a></h2>
+<p><span class="xref myst">Introduction/Why JB-Notebooks</span>
+All things gotta start somewhere, but how and why?</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "DiLER-Digitell/tutorial_jupyter_books",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-things">General things</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-quick-general-notes-on-instructions">Some quick general notes on instructions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-specific-installation-instructions">OS-specific installation instructions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-account">GitHub account</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enter-the-matrix">Enter the matrix</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-section">Next Section:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Felix Körber, Michael Ernst, Peer Herholz, Lucie Binder
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

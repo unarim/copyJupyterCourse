@@ -1,0 +1,746 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Motivation: Why Are We Here? &#8212; Creating Educational Content with Jupyter Books</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'general-information/motivation_demo';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Creating Educational Content with Jupyter Books - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Creating Educational Content with Jupyter Books - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Course Overview &amp; Procedure</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Creating Interactive Content With Jupyter Books</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="whyjb.html">Why Jupyter Books? An Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../content/1_github/intro.html">Getting Started With GitHub</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content/1_github/account.html">Setting Up a GitHub Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/1_github/project.html">Creating Your Course Repository on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/1_github/template.html">Exploring and Customizing the Template Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../content/2_host/host_website.html">Hosting Your Course Website</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content/2_host/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../content/3_create/intro.html">Creating Engaging Content</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content/3_create/markdown.html">Formatting Content With Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/3_create/media.html">Integrating Media Into Your Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/3_create/citations.html">Adding Citations and Bibliographies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/3_create/interactive.html">Making Your Book Truly Interactive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content/3_create/setup-files.html">Organizing Content With the Table of Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wrap-up.html">Wrapping Up: Key Takeaways and Next Steps</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Material</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../content/4_additional/quick_tutorial.html">Quick Setup Guide for Deploying Courses using Jupyter Book on Github</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../resources/info.html">Resources</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../resources/CoC.html">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resources/dei.html">Diversity, Equity, and Inclusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resources/open_science.html">Open Science</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/demo.html">Further courses under the DiLER project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/DiLER-Digitell/tutorial_jupyter_books/main?urlpath=lab/tree/docs/general-information/motivation_demo.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/tutorial_jupyter_books" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/tutorial_jupyter_books/edit/main/docs/general-information/motivation_demo.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/tutorial_jupyter_books/issues/new?title=Issue%20on%20page%20%2Fgeneral-information/motivation_demo.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/general-information/motivation_demo.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Motivation: Why Are We Here?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-of-proprietary-educational-platforms">Challenges of Proprietary Educational Platforms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-alternative-approach-open-educational-resources-oer">An Alternative Approach: Open Educational Resources (OER)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-github-and-jupyter-notebooks">Why Use GitHub and Jupyter Notebooks?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-jupyter-books">Why Use Jupyter Books?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multimedia-integration">Multimedia integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-integration">Audio integration 🎧</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-integration">Video integration 📺</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-gif-integration">Image/Gif integration 🖼️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-of-presentations">Integration of presentations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-of-code-cells">Integration of code cells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#and-much-more">… and much more</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-content">Interactive content</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-easily-in-contact">Get easily in contact ✉️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rocket">The rocket 🚀</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download">Download</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="motivation-why-are-we-here">
+<h1>Motivation: Why Are We Here?<a class="headerlink" href="#motivation-why-are-we-here" title="Permalink to this heading">#</a></h1>
+<p>What if your educational resources were not only effective for today’s students but also <strong>accessible, citable, and reproducible</strong> for future generations? If this prospect aligns with your academic vision, we invite you to explore this approach further.</p>
+<p>In light of the ongoing replication crisis, many universities are striving to make research and education more <strong>open, inclusive, and FAIR</strong> (<em>Findable, Accessible, Interoperable, and Reusable</em>). However, conventional educational platforms such as Moodle, OLAT, and ILIAS present significant limitations that are often at odds with these objectives. These proprietary systems introduce several challenges, including restricted access, high costs, and limited interoperability. For instance, educators frequently need to acquire costly licenses, which can hinder their ability to develop and disseminate instructional materials freely. Moreover, these platforms often lock users into specific ecosystems, complicating collaboration across institutions and disciplines. These constraints inhibit the dynamic and interactive learning environments necessary for contemporary higher education and research.</p>
+<section id="challenges-of-proprietary-educational-platforms">
+<h2>Challenges of Proprietary Educational Platforms<a class="headerlink" href="#challenges-of-proprietary-educational-platforms" title="Permalink to this heading">#</a></h2>
+<p><strong>Traditional educational platforms present several key issues:</strong></p>
+<ul class="simple">
+<li><p>Content is often exclusive and accessible only to a limited group of students.</p></li>
+<li><p>Collaboration on learning materials is constrained.</p></li>
+<li><p>Citability of learning resources is often inadequate.</p></li>
+<li><p>Content must frequently be recompiled for each new cohort.</p></li>
+<li><p>Integration of interactive elements is cumbersome.</p></li>
+<li><p>Content may become fragmented across multiple course iterations, making it difficult to track and update over time.</p></li>
+</ul>
+</section>
+<section id="an-alternative-approach-open-educational-resources-oer">
+<h2>An Alternative Approach: Open Educational Resources (OER)<a class="headerlink" href="#an-alternative-approach-open-educational-resources-oer" title="Permalink to this heading">#</a></h2>
+<p>To address these challenges, we propose the adoption of <strong>Open Educational Resources (OER)</strong>.
+But how can these be effectively created and maintained?
+Our approach leverages open-source tools, including <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyter Books</a> and <a class="reference external" href="https://github.com/">GitHub</a>, along with <a class="reference external" href="https://pages.github.com/">GitHub Pages</a>, to facilitate the development and dissemination of reusable educational materials.</p>
+<section id="why-use-github-and-jupyter-notebooks">
+<h3>Why Use GitHub and Jupyter Notebooks?<a class="headerlink" href="#why-use-github-and-jupyter-notebooks" title="Permalink to this heading">#</a></h3>
+<p>Familiarity with these tools is not required—we will provide a structured introduction within the next 90 minutes. Our methodology is supported by a <a class="reference external" href="https://github.com/DiLER-Digitell/Course-template"><strong>pre-configured template</strong></a> designed to simplify the creation of OERs. This template can be used for diverse learning materials as well as for dynamic publication and documentation (for an example, click <a class="reference external" href="https://oreoni.github.io/">here</a>).</p>
+<p><strong>Our approach offers concrete solutions to the limitations outlined above:</strong></p>
+<ul class="simple">
+<li><p>Content is <strong>openly accessible</strong> to anyone with an internet connection, independent of institutional affiliation.</p></li>
+<li><p><strong>Collaboration</strong> is greatly facilitated through GitHub’s <strong>version control</strong> and contribution mechanisms.</p></li>
+<li><p>Educational resources become easily <strong>citable</strong>.</p></li>
+<li><p>Materials can be <strong>reused</strong> and <strong>adapted efficiently</strong>.</p></li>
+<li><p><strong>Version control</strong> ensures that previous iterations remain <strong>accessible</strong>, enhancing <strong>transparency</strong>.</p></li>
+<li><p>Jupyter Notebooks support seamless integration of <strong>interactive components</strong>, including <strong>live coding, videos, and presentations</strong>.</p></li>
+<li><p>Hosting content via GitHub allows for <strong>centralized management</strong> and <strong>continuous tracking of updates</strong>.</p></li>
+</ul>
+<p><em><strong>This framework aligns more effectively with the principles of open science and FAIR research than conventional approaches</strong></em>.</p>
+</section>
+</section>
+<section id="why-use-jupyter-books">
+<h2>Why Use Jupyter Books?<a class="headerlink" href="#why-use-jupyter-books" title="Permalink to this heading">#</a></h2>
+<p>Jupyter Book is a powerful, <strong>open-source</strong> tool that enables you to create and publish <strong>interactive</strong>, <strong>web-based textbooks</strong> and other educational content. It is built on open-source technologies such as Jupyter notebooks, which allow for easy integration of <strong>code</strong>, <strong>text</strong>, and <strong>media</strong>, providing a more immersive and engaging learning experience. By leveraging the power of open-source technologies, Jupyter Book addresses the limitations of proprietary software and provides a customizable and adaptable solution for modern education.</p>
+</section>
+<section id="multimedia-integration">
+<h2>Multimedia integration<a class="headerlink" href="#multimedia-integration" title="Permalink to this heading">#</a></h2>
+<p>In addition to the limitations of traditional means of education, the modern world’s diverse population requires educational methods that cater to a range of learning styles and abilities. Multimodal educational means, which utilize a variety of media and techniques such as <strong>audio</strong>, <strong>video</strong>, <strong>images</strong>, and <strong>interactive elements</strong>, are essential for engaging learners with different learning styles and abilities. These methods allow for greater customization and adaptability, enabling learners to progress at their own pace and in a way that suits their learning style. As such, multimodal educational means are critical for providing an inclusive and effective learning experience for all students, regardless of their background or ability level.</p>
+<section id="audio-integration">
+<h3>Audio integration 🎧<a class="headerlink" href="#audio-integration" title="Permalink to this heading">#</a></h3>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3GJ6jnDrapgXAmxEXO6fWw?utm_source=generator" 
+        width="100%" height="352" frameborder="0" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+</iframe>
+</section>
+<section id="video-integration">
+<h3>Video integration 📺<a class="headerlink" href="#video-integration" title="Permalink to this heading">#</a></h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9YuNGB3vNOw?si=dPCD8xeLaUuimvYP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</section>
+<section id="image-gif-integration">
+<h3>Image/Gif integration 🖼️<a class="headerlink" href="#image-gif-integration" title="Permalink to this heading">#</a></h3>
+<iframe src="https://giphy.com/embed/YPzvV7N0Cnlbbrigvp" width="480" height="271" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/bigbangtheory-season-1-episode-9-big-bang-theory-YPzvV7N0Cnlbbrigvp">via GIPHY</a></p>
+</section>
+<section id="integration-of-presentations">
+<h3>Integration of presentations<a class="headerlink" href="#integration-of-presentations" title="Permalink to this heading">#</a></h3>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTJvUAN-dg7r7Dbj-KpxcNO6ssd7akDQjBbHzhTTBBU7zSBZ4sTfjYPtHZL6V7GmM0VQvo6Aviu5oSG/embed?start=false&loop=false&delayms=10000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</section>
+<section id="integration-of-code-cells">
+<h3>Integration of code cells<a class="headerlink" href="#integration-of-code-cells" title="Permalink to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">These</span> <span class="n">cells</span> <span class="n">can</span> <span class="n">be</span> <span class="n">executed</span><span class="p">,</span> <span class="n">when</span> <span class="n">live</span> <span class="n">code</span> <span class="n">via</span> <span class="n">Binder</span> <span class="ow">or</span> <span class="n">Colab</span> <span class="ow">is</span> <span class="n">activated</span> <span class="ow">or</span> <span class="n">when</span> <span class="n">the</span> <span class="n">notebook</span> <span class="ow">is</span> <span class="n">downloaded</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="and-much-more">
+<h3>… and much more<a class="headerlink" href="#and-much-more" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="interactive-content">
+<h2>Interactive content<a class="headerlink" href="#interactive-content" title="Permalink to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Exercises…<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">… and answers</p>
+</div>
+</details><div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
+<p>Did you know, that Git was built by Linus Torvalds (the guy who created Linux)?</p>
+</div>
+<section id="get-easily-in-contact">
+<h3>Get easily in contact ✉️<a class="headerlink" href="#get-easily-in-contact" title="Permalink to this heading">#</a></h3>
+<p>Instead of writing a letter, giving it to a carrier pigeon and hoping that it arrives undamaged, you can get easily in contact via <strong>hypothesis</strong>. On the right-hand side of this website, overlayed over the scroll bar, you’ll find a symbol looking like this <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>. This tool <a class="reference external" href="https://web.hypothes.is/">(hypothesis)</a> allows you to annotate and highlight relevant information on this website, while clicking on the arrow (<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>) will reveal the public annotation board. Feel free to use this tool to discuss, annotate, or ask questions regarding the site content there!</p>
+</section>
+<section id="the-rocket">
+<h3>The rocket 🚀<a class="headerlink" href="#the-rocket" title="Permalink to this heading">#</a></h3>
+<p>On the top of this page you find a 🚀 symbol. Navigate your mouse to the 🚀 and you will find the <a class="reference external" href="https://mybinder.org/"><strong>Binder</strong></a> and the <a class="reference external" href="https://colab.google/"><strong>Colab</strong></a> button. By clicking on either of the buttons, you will get a live version of this notebook to run it on Binder or Colab respectively.
+Feel free to try it out!</p>
+</section>
+</section>
+<section id="download">
+<h2>Download<a class="headerlink" href="#download" title="Permalink to this heading">#</a></h2>
+<p>On the top of the  page you finde a top-down arrow. Navigate your mouse towards that arrow and you can download the page as <code class="docutils literal notranslate"><span class="pre">.pdf</span></code> or <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>(Jupyter Notebook).</p>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<p><strong>By the conclusion of this session, you will:</strong></p>
+<ul class="simple">
+<li><p>Understand the concept and functionality of Jupyter Notebooks and Jupyter Books.</p></li>
+<li><p>Be proficient in basic GitHub operations, including account setup, cloning, and forking.</p></li>
+<li><p>Recognize the utility of GitHub Pages for educational dissemination.</p></li>
+<li><p>Comprehend how these tools streamline the creation of OERs.</p></li>
+<li><p>Appreciate the long-term benefits of adopting this methodology for academic instruction and research.</p></li>
+<li><p>Accessing Course Materials</p></li>
+</ul>
+<p>All course materials will be <strong>freely available</strong> on this course website, ensuring <strong>unrestricted access in line with the principles of open science</strong>. Participants are encouraged to explore, enhance, and disseminate these resources. The materials will remain available indefinitely, subject to updates and revisions. To preserve a specific version, the complete course can be downloaded from our GitHub repository.</p>
+<p>A course template will also be provided to facilitate practical engagement. This template includes a structured folder system, example content files, a licensing framework, an open science statement, an equity, diversity, and inclusion statement, and a code of conduct. It serves as a foundational tool for creating personalized courses. By incorporating custom content and adjusting the structure as needed, participants can deploy their own educational resources through GitHub with minimal effort.</p>
+<p>We invite you to engage with these materials and begin transforming the way educational content is created and shared.</p>
+<p>Questions?</p>
+<p>Let us begin.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "DiLER-Digitell/tutorial_jupyter_books",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./general-information"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-of-proprietary-educational-platforms">Challenges of Proprietary Educational Platforms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-alternative-approach-open-educational-resources-oer">An Alternative Approach: Open Educational Resources (OER)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-github-and-jupyter-notebooks">Why Use GitHub and Jupyter Notebooks?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-jupyter-books">Why Use Jupyter Books?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multimedia-integration">Multimedia integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-integration">Audio integration 🎧</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-integration">Video integration 📺</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-gif-integration">Image/Gif integration 🖼️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-of-presentations">Integration of presentations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-of-code-cells">Integration of code cells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#and-much-more">… and much more</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-content">Interactive content</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-easily-in-contact">Get easily in contact ✉️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rocket">The rocket 🚀</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download">Download</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Felix Körber, Michael Ernst, Peer Herholz, Lucie Binder
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

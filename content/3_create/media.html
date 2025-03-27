@@ -1,0 +1,692 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Integrating Media Into Your Content &#8212; Creating Educational Content with Jupyter Books</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/3_create/media';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Adding Citations and Bibliographies" href="citations.html" />
+    <link rel="prev" title="Formatting Content With Markdown" href="markdown.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../general-information/index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Creating Educational Content with Jupyter Books - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Creating Educational Content with Jupyter Books - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../general-information/index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../general-information/overview.html">Course Overview &amp; Procedure</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Creating Interactive Content With Jupyter Books</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../general-information/whyjb.html">Why Jupyter Books? An Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../1_github/intro.html">Getting Started With GitHub</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../1_github/account.html">Setting Up a GitHub Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_github/project.html">Creating Your Course Repository on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_github/template.html">Exploring and Customizing the Template Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../2_host/host_website.html">Hosting Your Course Website</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2_host/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Creating Engaging Content</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="markdown.html">Formatting Content With Markdown</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Integrating Media Into Your Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="citations.html">Adding Citations and Bibliographies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interactive.html">Making Your Book Truly Interactive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup-files.html">Organizing Content With the Table of Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../general-information/wrap-up.html">Wrapping Up: Key Takeaways and Next Steps</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Material</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../4_additional/quick_tutorial.html">Quick Setup Guide for Deploying Courses using Jupyter Book on Github</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/info.html">Resources</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../resources/CoC.html">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../resources/dei.html">Diversity, Equity, and Inclusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../resources/open_science.html">Open Science</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/demo.html">Further courses under the DiLER project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/tutorial_jupyter_books" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/tutorial_jupyter_books/edit/main/docs/content/3_create/media.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/tutorial_jupyter_books/issues/new?title=Issue%20on%20page%20%2Fcontent/3_create/media.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/3_create/media.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Integrating Media Into Your Content</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#images">Images</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-markdown">Using Markdown</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-html">Using HTML</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos-presentations-gifs-and-more-iframes">Videos, Presentations, GIFs, and more: iframes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-slides">Google Slides</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gifs">GIFs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-section">Next section:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="integrating-media-into-your-content">
+<h1>Integrating Media Into Your Content<a class="headerlink" href="#integrating-media-into-your-content" title="Permalink to this heading">#</a></h1>
+<p>In this section, you will learn how to embed images, videos, presentations, and GIFs into your course.</p>
+<section id="images">
+<h2>Images<a class="headerlink" href="#images" title="Permalink to this heading">#</a></h2>
+<p>In Jupyter Books, there are few different ways to include images. Here, we will highlight the way that is most optimal for hosting your website with our provided <code class="docutils literal notranslate"><span class="pre">build</span></code> script, located in the ‘.github/workflows’ directory of our course template.</p>
+<section id="using-markdown">
+<h3>Using Markdown<a class="headerlink" href="#using-markdown" title="Permalink to this heading">#</a></h3>
+<p>The easiest way is to add the images to the static folder of your project. Once you upload the project to your GitHub you essentially are hosting the images through their services.</p>
+<p>To add images in your markdown file that are uploaded in you static folder, you can use the relative path:</p>
+<p><code class="docutils literal notranslate"><span class="pre">![alternative_imagetext](../static/FILENAME.png)</span></code> with as many <code class="docutils literal notranslate"><span class="pre">../</span></code> as you need to move up one level in your folder structure.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">![Image</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">DiLER</span> <span class="pre">project</span> <span class="pre">logo](../../static/logo.png)</span></code></p>
+<p>Result:</p>
+<p><img alt="Image of the DiLER project logo" src="../../_images/logo.png" /></p>
+<p>Alternatively, you can include the image link as follows:
+<code class="docutils literal notranslate"><span class="pre">![alternative_imagetext](https://YOURGITHUBNAME.github.io/PROJECTNAME/static/FILENAME.png)</span></code></p>
+<p>As you are able to use essentially any image link, you can add images that are hosted through other websites, too!</p>
+</section>
+<section id="using-html">
+<h3>Using HTML<a class="headerlink" href="#using-html" title="Permalink to this heading">#</a></h3>
+<p>If you want more control about the size, orientation and more, you will have to rely on HTML tags. E.g. the following line of code will present the same image as above only downscaled to a width of 200 pixels.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;img</span> <span class="pre">src=&quot;https://DiLER-Digitell.github.io/tutorial_jupyter_books/static/logo.png&quot;</span> <span class="pre">alt=&quot;Image</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">DiLER</span> <span class="pre">project</span> <span class="pre">logo&quot;</span> <span class="pre">class=&quot;bg-primary</span> <span class="pre">mb-1&quot;</span> <span class="pre">width=&quot;200px&quot;&gt;</span></code></p>
+<p>which results in:</p>
+<img src="https://DiLER-Digitell.github.io/tutorial_jupyter_books/static/logo.png" alt="Image of the DiLER project logo" class="bg-primary mb-1" width="200px">
+<img src="../../static/logo.png" alt="Image of the DiLER project logo" class="bg-primary mb-1" width="200px">
+<img src="https://felixkoerber.github.io/jb/_static/logo.png" alt="logo" class="bg-primary mb-1" width="200px"> 
+<hr class="docutils" />
+<p><strong>The code above is made up of multiple html keywords, that each control a separate parameter of the image you want to control:</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Keyword</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code></p></td>
+<td><p>an HTML tag used to display an image on a web page.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">src=&quot;../../static/logo.png&quot;</span></code></p></td>
+<td><p>an attribute that specifies the URL or path to the image file you want to display.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">alt=&quot;Image</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">DiLER</span> <span class="pre">project</span> <span class="pre">logo&quot;</span></code></p></td>
+<td><p>an attribute that provides alternative text for the image. This text is used by screen readers for visually impaired users, and it is also displayed when the image cannot be loaded for some reason.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">class=&quot;bg-primary</span> <span class="pre">mb-1&quot;</span></code></p></td>
+<td><p>an attribute that defines the CSS class or classes to apply to the image. In this case, the class bg-primary sets the background color of the image to a primary color, and mb-1 adds a margin-bottom of 1 unit to the image.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">width=&quot;200px&quot;</span></code></p></td>
+<td><p>an attribute that sets the width of the image to 200 pixels. This can be adjusted to suit your needs.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Simply copy-paste the above line of code and adjust it to your need as necessary to embed every kind of image into your notebooks.</p>
+<p><strong>For a more in-depth exploration of the <code class="docutils literal notranslate"><span class="pre">img</span></code> tag checkout the <a class="reference external" href="https://www.w3schools.com/html/html_images.asp">w3schools html tutorial</a>.</strong></p>
+</section>
+</section>
+<section id="videos-presentations-gifs-and-more-iframes">
+<h2>Videos, Presentations, GIFs, and more: iframes<a class="headerlink" href="#videos-presentations-gifs-and-more-iframes" title="Permalink to this heading">#</a></h2>
+<p>As you already learned, Jupyter Book enables you to implement <code class="docutils literal notranslate"><span class="pre">html</span></code> into your books. This allows for the integration of almost every type of media, including - but not limited to - Videos, Presentations, GIFs, Maps and Images via <code class="docutils literal notranslate"><span class="pre">iframes</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">iframes</span></code> or <em>inlineframes</em> are HTML-elements, that can be used to embed content from different websites.</p>
+</div>
+<p>Inlineframes are structured and implemented like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;iframe</span> <span class="pre">src=&quot;http://www.example.com/&quot;</span> <span class="pre">height=&quot;100&quot;</span> <span class="pre">width=&quot;200&quot;</span> <span class="pre">name=&quot;iframename&quot;&gt;Alternative</span> <span class="pre">title&lt;/iframe&gt;</span></code></p>
+<p>Thus, they essentially follow the same structure as the HTML-image integration.</p>
+<p>To quickly generate this code for the media of your choice, you can use a tool like the <a class="reference external" href="https://www.iframe-generator.com/">iframe-generator</a>, where you add the media URL, can change various settings and can then generate the iframe code.</p>
+<p>Let us go over different types of media embeddings:</p>
+<hr class="docutils" />
+<section id="videos">
+<h3>Videos<a class="headerlink" href="#videos" title="Permalink to this heading">#</a></h3>
+<p>To add videos, you need to add the “embed”-URL of the video.
+This URL is formatted like this:
+<code class="docutils literal notranslate"><span class="pre">http://www.youtube.com/embed/VIDEO_ID</span></code></p>
+<p>Thus, <code class="docutils literal notranslate"><span class="pre">https://www.youtube.com/watch?v=c-bemNZ-IqA</span></code> would become <code class="docutils literal notranslate"><span class="pre">https://www.youtube.com/embed/c-bemNZ-IqA</span></code>.</p>
+<p>Added in iframes, it looks like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;iframe</span> <span class="pre">src=&quot;https://www.youtube.com/embed/c-bemNZ-IqA&quot;</span> <span class="pre">style=&quot;border:0px</span> <span class="pre">#ffffff</span> <span class="pre">none;&quot;</span> <span class="pre">name=&quot;Open</span> <span class="pre">Science</span> <span class="pre">Video&quot;</span> <span class="pre">scrolling=&quot;no&quot;</span> <span class="pre">frameborder=&quot;1&quot;</span> <span class="pre">marginheight=&quot;0px&quot;</span> <span class="pre">marginwidth=&quot;0px&quot;</span> <span class="pre">height=&quot;400px&quot;</span> <span class="pre">width=&quot;600px&quot;</span> <span class="pre">allowfullscreen&gt;&lt;/iframe&gt;</span></code></p>
+<p>Turning into:</p>
+<iframe src="https://www.youtube.com/embed/c-bemNZ-IqA" style="border:0px #ffffff none;" name="Open Science Video" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="600px" allowfullscreen></iframe>
+</section>
+<section id="google-slides">
+<h3>Google Slides<a class="headerlink" href="#google-slides" title="Permalink to this heading">#</a></h3>
+<p>Here’s how you embed Google Slides in Jupyter Book with the HTML iframe:</p>
+<ul class="simple">
+<li><p>Go to your Google Slides presentation and click on the “File” button in the top-left corner of the screen.</p></li>
+<li><p>Click on “share” and select “Publish to the web”</p></li>
+<li><p>Select “Embed” and click “Publish”</p></li>
+<li><p>Open your Markdown file where you want to embed the Google Slides presentation.</p></li>
+<li><p>Copy the HTML-code, which could result in something like this:</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;iframe</span> <span class="pre">src=&quot;https://docs.google.com/presentation/d/e/2PACX-1vTJvUAN-dg7r7Dbj-KpxcNO6ssd7akDQjBbHzhTTBBU7zSBZ4sTfjYPtHZL6V7GmM0VQvo6Aviu5oSG/embed?start=false&amp;loop=false&amp;delayms=10000&quot;</span> <span class="pre">frameborder=&quot;0&quot;</span> <span class="pre">width=&quot;960&quot;</span> <span class="pre">height=&quot;569&quot;</span> <span class="pre">allowfullscreen=&quot;true&quot;</span> <span class="pre">mozallowfullscreen=&quot;true&quot;</span> <span class="pre">webkitallowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;</span></code></p>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTJvUAN-dg7r7Dbj-KpxcNO6ssd7akDQjBbHzhTTBBU7zSBZ4sTfjYPtHZL6V7GmM0VQvo6Aviu5oSG/embed?start=false&loop=false&delayms=10000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<p>Note that the width and height of the iframe can be adjusted to fit your specific use case. You may also want to adjust the styling of the iframe to match your Jupyter Book’s visual design better.</p>
+</section>
+<section id="gifs">
+<h3>GIFs<a class="headerlink" href="#gifs" title="Permalink to this heading">#</a></h3>
+<p>Here’s an example on how to implement GIFs in Jupyter Books:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;iframe</span> <span class="pre">src=&quot;link/to/your/gif/file.gif&quot;</span> <span class="pre">width=&quot;240&quot;</span> <span class="pre">height=&quot;200&quot;</span> <span class="pre">frameBorder=&quot;0&quot;</span> <span class="pre">class=&quot;giphy-embed&quot;</span> <span class="pre">allowFullScreen&gt;&lt;/iframe&gt;'</span></code></p>
+<p>Again, replace “link/to/your/gif/file.gif” with the URL or file path to your GIF.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">&lt;iframe</span> <span class="pre">src=&quot;https://giphy.com/embed/l5s71uAp3CzKwxwkoZ&quot;</span> <span class="pre">width=&quot;240&quot;</span> <span class="pre">height=&quot;200&quot;</span> <span class="pre">frameBorder=&quot;0&quot;</span> <span class="pre">class=&quot;giphy-embed&quot;</span> <span class="pre">allowFullScreen&gt;&lt;/iframe&gt;</span></code></p>
+<p>Result:</p>
+<iframe src="https://giphy.com/embed/l5s71uAp3CzKwxwkoZ" width="240" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that if you’re using a local file path, the path should be relative to the location of the Markdown file that you’re embedding the GIF in. If you’re using a URL, it should be a direct link to the GIF file.</p>
+</div>
+<hr class="docutils" />
+<p>There are plenty of other datatypes you can add! This section is only a short introduction to the embedding of media.</p>
+</section>
+</section>
+<section id="next-section">
+<h2>Next section:<a class="headerlink" href="#next-section" title="Permalink to this heading">#</a></h2>
+<p>In the next section, you will learn how to integrate citations and bibliographies.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "DiLER-Digitell/tutorial_jupyter_books",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/3_create"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="markdown.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Formatting Content With Markdown</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="citations.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Adding Citations and Bibliographies</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#images">Images</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-markdown">Using Markdown</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-html">Using HTML</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos-presentations-gifs-and-more-iframes">Videos, Presentations, GIFs, and more: iframes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-slides">Google Slides</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gifs">GIFs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-section">Next section:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Felix Körber, Michael Ernst, Peer Herholz, Lucie Binder
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
