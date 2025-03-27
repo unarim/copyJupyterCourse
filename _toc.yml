@@ -1,0 +1,44 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: general-information/index
+parts:
+- caption: Getting Started
+  chapters:
+  - file: general-information/overview
+- caption: Creating Interactive Content With Jupyter Books
+  chapters:
+  - file: general-information/whyjb
+  - file: content/1_github/intro
+    sections:
+    - file: content/1_github/account
+    - file: content/1_github/project
+    - file: content/1_github/template
+  - file: content/2_host/host_website
+    sections:
+    - file: content/2_host/troubleshooting
+  - file: content/3_create/intro
+    sections:
+    - file: content/3_create/markdown
+    - file: content/3_create/media
+    - file: content/3_create/citations
+    - file: content/3_create/interactive
+    - file: content/3_create/setup-files
+  - file: general-information/wrap-up
+- caption: Additional Material
+  chapters:
+  - file: content/4_additional/quick_tutorial
+  - file: content/4_additional/git/intro
+    sections:
+    - file: content/4_additional/git/install
+    - file: content/4_additional/git/version_control
+    - file: content/4_additional/git/use
+  - file: content/4_additional/jupyter_notebook
+  - file: resources/info
+    sections:
+    - file: resources/CoC
+    - file: resources/dei
+    - file: resources/open_science
+  - file: resources/demo
+
