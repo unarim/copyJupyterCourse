@@ -29,6 +29,7 @@ parts:
     - file: content/3_create/create_mcq
     - file: content/3_create/create_oeq
     - file: content/3_create/create_ls
+    - file: content/3_create/mix
   - file: general-information/wrap-up
 - caption: Additional Material
   chapters:
