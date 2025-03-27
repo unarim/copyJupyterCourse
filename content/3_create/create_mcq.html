@@ -1,0 +1,893 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Interactive Multiple-Choice Quiz with Feedback options with MyBinder &#8212; Creating Educational Content with Jupyter Books</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/3_create/create_mcq';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Wrapping Up: Key Takeaways and Next Steps" href="../../general-information/wrap-up.html" />
+    <link rel="prev" title="Making Your Book Truly Interactive" href="interactive2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../general-information/index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Creating Educational Content with Jupyter Books - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Creating Educational Content with Jupyter Books - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../general-information/index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../general-information/overview.html">Course Overview &amp; Procedure</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Creating Interactive Content With Jupyter Books</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../general-information/whyjb.html">Why Jupyter Books? An Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../1_github/intro.html">Getting Started With GitHub</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../1_github/account.html">Setting Up a GitHub Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_github/project.html">Creating Your Course Repository on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_github/template.html">Exploring and Customizing the Template Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../2_host/host_website.html">Hosting Your Course Website</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2_host/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="intro.html">Creating Engaging Content</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="markdown.html">Formatting Content With Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media.html">Integrating Media Into Your Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="citations.html">Adding Citations and Bibliographies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup-files.html">Organizing Content With the Table of Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="interactive2.html">Making Your Book Truly Interactive</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Interactive Multiple-Choice Quiz with Feedback options with MyBinder</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../general-information/wrap-up.html">Wrapping Up: Key Takeaways and Next Steps</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Material</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../4_additional/quick_tutorial.html">Quick Setup Guide for Deploying Courses using Jupyter Book on Github</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/info.html">Resources</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../resources/CoC.html">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../resources/dei.html">Diversity, Equity, and Inclusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../resources/open_science.html">Open Science</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/demo.html">Further courses under the DiLER project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/DiLER-Digitell/tutorial_jupyter_books/main?urlpath=lab/tree/docs/content/3_create/create_mcq.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/tutorial_jupyter_books" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/tutorial_jupyter_books/edit/main/docs/content/3_create/create_mcq.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DiLER-Digitell/tutorial_jupyter_books/issues/new?title=Issue%20on%20page%20%2Fcontent/3_create/create_mcq.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/3_create/create_mcq.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Interactive Multiple-Choice Quiz with Feedback options with MyBinder</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives 📍</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions"><strong>Instructions</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-set-up-your-repository"><strong>Step 1:</strong> Set Up Your repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-the-quiz-jupyter-notebook"><strong>Step 2:</strong> Create the Quiz Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-add-the-notebook-to-github">Step 3: Add the Notebook to GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-create-the-mybinder-link">Step 4: Create the MyBinder Link</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-add-the-binder-link-to-your-course-page">Step 5: Add the Binder Link to Your Course Page</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-add-required-packages">Step 6: Add Required Packages</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="interactive-multiple-choice-quiz-with-feedback-options-with-mybinder">
+<h1>Interactive Multiple-Choice Quiz with Feedback options with MyBinder<a class="headerlink" href="#interactive-multiple-choice-quiz-with-feedback-options-with-mybinder" title="Permalink to this heading">#</a></h1>
+<p>In this section, you will create <strong>interactive multiple-choice questions</strong> using a simple Python code, publish them to <strong>GitHub</strong>, and launch them via <strong>MyBinder</strong> using shareable links!</p>
+<section id="objectives">
+<h2>Objectives 📍<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Build multiple-choice quizzes using editable Python dictonaries</p></li>
+<li><p>Display interactive questions with real-time feedback in Jupyter Notebooks</p></li>
+<li><p>Push your content to your public GitHub repository</p></li>
+<li><p>Launch your quizzes using <strong>Voila</strong> on <strong>MyBinder</strong></p></li>
+</ul>
+<p>At the end, you should be able to create something like this:</p>
+<p>[👉 Lauch Quiz on MyBinder] (<a class="reference external" href="https://mybinder.org/v2/gh/unarim/copyJupyterCourse/main/?urlpath=voila%2Frender%2Finteractives%2FMCQ_feedback.ipynb">https://mybinder.org/v2/gh/unarim/copyJupyterCourse/main/?urlpath=voila%2Frender%2Finteractives%2FMCQ_feedback.ipynb</a>)</p>
+</section>
+<section id="instructions">
+<h2><strong>Instructions</strong><a class="headerlink" href="#instructions" title="Permalink to this heading">#</a></h2>
+<section id="step-1-set-up-your-repository">
+<h3><strong>Step 1:</strong> Set Up Your repository<a class="headerlink" href="#step-1-set-up-your-repository" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Ensure you have already created and set up your GitHub repository.</p></li>
+<li><p>Inside your repository, create a folder named <code class="docutils literal notranslate"><span class="pre">interactives</span></code>.</p></li>
+</ol>
+</section>
+<section id="step-2-create-the-quiz-jupyter-notebook">
+<h3><strong>Step 2:</strong> Create the Quiz Jupyter Notebook<a class="headerlink" href="#step-2-create-the-quiz-jupyter-notebook" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Create a new file: i.e. <code class="docutils literal notranslate"><span class="pre">mcq.ipynb</span></code></p></li>
+<li><p>Copy-paste the following code inside your Notebook</p></li>
+<li><p><strong>IMPORTANT</strong>:</p>
+<ul class="simple">
+<li><p>Do not change the dictionary keys: “prompt”, “options”, “answer”, and “feedback”.</p></li>
+<li><p>In each “feedback” sub-dictionary, the keys (e.g., “A”, “B”, etc.) must match the option labels.</p></li>
+<li><p>You can freely edit the text (question prompts, option text, and feedback messages) to suit your content.</p></li>
+<li><p>Be careful to update the “answer” field if you change the options.</p></li>
+</ul>
+</li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">widgets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="n">quiz_data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="s2">&quot;Which measure of central tendency is most affected by outliers?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;options&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;A) Median&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B) Mean&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;C) Mode&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D) Range&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;answer&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;feedback&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;No. The median is typically robust against outliers.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;Correct! The mean can shift significantly due to outliers.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="s2">&quot;Not quite. The mode represents the most frequent value and is often unaffected by extreme values.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;Range is not a measure of central tendency; it measures the spread between the minimum and maximum.&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the median of the set [3, 5, 6, 8, 10]?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;options&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;A) 5&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B) 6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;C) 6.5&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D) 7&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;answer&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;feedback&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;Close, but 5 is the second value, not the middle in an ordered set of five values.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;Correct! With an odd number of values, the median is the middle one, which is 6 here.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="s2">&quot;This would be the median if you had two middle numbers, but this list has five values.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;7 does not appear in the list and isn&#39;t in the middle.&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="s2">&quot;Which term refers to how spread out data points are from their average value?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;options&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;A) Standard deviation&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B) Correlation coefficient&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;C) Average&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D) Median&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;answer&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;feedback&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;Correct! Standard deviation measures how much the data vary around the mean.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;Correlation coefficient measures the linear relationship between two variables.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="s2">&quot;Another word for the mean, which is a central tendency, not spread.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;The median is a central tendency measure, not a spread measure.&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="s2">&quot;If P(A) = 0.4 and P(B) = 0.5, and A and B are independent events, what is P(A ∩ B)?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;options&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;A) 0.2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B) 0.4&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;C) 0.45&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D) 0.9&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;answer&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;feedback&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;Correct! For independent events, P(A ∩ B) = P(A) × P(B) = 0.4 × 0.5 = 0.2.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;No. That’s just P(A); independence requires multiplying the probabilities.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="s2">&quot;This would not be correct; it’s larger than 0.2 and does not reflect independence properly.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;This is too large; definitely not the product of 0.4 and 0.5.&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+<span class="c1">########### This code block defines a custom CSS to visually enhance how multiple choice questions and feedback messages look. #################</span>
+<span class="n">custom_css</span> <span class="o">=</span> <span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">    .questions-container {</span>
+<span class="s2">        border: 3px solid #ddd; /* You can change to #aaa or #ccc for darker/lighter border */</span>
+<span class="s2">        padding: 15px; /* Increase padding to 20px for more space */</span>
+<span class="s2">        margin-bottom: 15px;</span>
+<span class="s2">        border-radius: 15px; /* Try 10px or 20px for more rounded corners */</span>
+<span class="s2">        background: linear-gradient(to bottom, #fafafa 0%, #ffffff 100%);  /* Replace with solid color: background: #f0f0f0; */</span>
+<span class="s2">    }</span>
+
+<span class="s2">    .question-row {</span>
+<span class="s2">        margin: 15px 0  /* Adjust spacing between each question */</span>
+<span class="s2">    }</span>
+
+<span class="s2">    .feedback-card {</span>
+<span class="s2">        border: 1px solid #ccc; /* Try #bbb or #999 for stronger border */</span>
+<span class="s2">        background: #fefefe; /* Try #f9f9f9 or #e6f7ff for soft color */</span>
+<span class="s2">        padding: 15px;</span>
+<span class="s2">        margin: 10px 0;</span>
+<span class="s2">        border-radius: 5px; /* Customize how round the feedback box is */</span>
+<span class="s2">        box-shadow: 1px 1px 34px rgba(0, 0, 0, 0.1);/* Increase shadow: 2px 2px 6px rgba(0,0,0,0.15); or remove it with box-shadow: none; */</span>
+<span class="s2">    }</span>
+<span class="s2">    .feedback-error {</span>
+<span class="s2">        border: 1px solid #d9534f !important; /* Try #c9302c for darker red */</span>
+<span class="s2">        background: #f9f1f0 !important; /* Try #fbe9e7 or any light red/pink */</span>
+<span class="s2">        color: #d9534f !important; /* You could try #b52b27 */</span>
+<span class="s2">             /* You can make this match feedback-error or choose a different tone for wrong answers */</span>
+<span class="s2">    }</span>
+
+<span class="s2">    .feedback-correct {</span>
+<span class="s2">        border: 1px solid #5cb85c !important;  /* Try #4CAF50 for a more vibrant green */</span>
+<span class="s2">        background: #f0fff0 !important; /* Try #e8f5e9 for soft green */</span>
+<span class="s2">        color: #3c763d !important;  /* You could try #256029 for deeper green */</span>
+<span class="s2">    }</span>
+<span class="s2">    .feedback-incorrect {</span>
+<span class="s2">        border: 1px solid #d9534f !important;</span>
+<span class="s2">        background: #f9f1f0 !important;</span>
+<span class="s2">        color: #d9534f !important;</span>
+<span class="s2">    }</span>
+
+<span class="s2">    .feedback-card h4 {</span>
+<span class="s2">        margin-top: 0;</span>
+<span class="s2">        color: #2c3e50;  /* Change to #333 or #000 for stronger contrast */</span>
+<span class="s2">    }</span>
+
+<span class="s2">    .mcq-radio .widget-radio-box {</span>
+<span class="s2">        margin: 0 5px 0 0 !important; /* Add space between radio buttons and text */</span>
+<span class="s2">    }</span>
+<span class="s2">    .mcq-radio .widget-label {</span>
+<span class="s2">        font-size: 0.9rem;</span>
+<span class="s2">        color: #444;</span>
+<span class="s2">        /* You can also add: font-weight: bold; */</span>
+<span class="s2">    }</span>
+<span class="s2">&lt;/style&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="c1">######################################################################################################################################################</span>
+<span class="n">question_widgets</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">quiz_data</span><span class="p">:</span>
+    <span class="n">prompt_html</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;&lt;b&gt;</span><span class="si">{</span><span class="n">q</span><span class="p">[</span><span class="s1">&#39;prompt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/b&gt;&quot;</span>
+    <span class="p">)</span>
+    <span class="n">radio</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">RadioButtons</span><span class="p">(</span>
+        <span class="n">options</span><span class="o">=</span><span class="n">q</span><span class="p">[</span><span class="s2">&quot;options&quot;</span><span class="p">],</span>
+        <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">radio</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;mcq-radio&quot;</span><span class="p">)</span>
+    <span class="n">question_box</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">prompt_html</span><span class="p">,</span> <span class="n">radio</span><span class="p">])</span>
+    <span class="n">question_box</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;question-row&quot;</span><span class="p">)</span>
+    <span class="n">question_widgets</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">question_box</span><span class="p">,</span> <span class="n">radio</span><span class="p">,</span> <span class="n">q</span><span class="p">))</span>
+<span class="n">questions_box</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">qw</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">qw</span> <span class="ow">in</span> <span class="n">question_widgets</span><span class="p">])</span>
+<span class="n">questions_box</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;questions-container&quot;</span><span class="p">)</span>
+<span class="n">feedback_output</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+<span class="n">submit_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Submit&quot;</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;success&#39;</span><span class="p">)</span>
+<span class="n">retake_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Retake&quot;</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;warning&#39;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">on_submit_click</span><span class="p">(</span><span class="n">_</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">feedback_output</span><span class="p">:</span>
+        <span class="n">clear_output</span><span class="p">()</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;h2 style=&#39;color: #444; margin-bottom:10px;&#39;&gt;Your Results&lt;/h2&gt;&quot;</span><span class="p">))</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>     
+        <span class="k">for</span> <span class="p">(</span><span class="n">question_box</span><span class="p">,</span> <span class="n">radio</span><span class="p">,</span> <span class="n">q_data</span><span class="p">)</span> <span class="ow">in</span> <span class="n">question_widgets</span><span class="p">:</span>
+            <span class="n">chosen</span> <span class="o">=</span> <span class="n">radio</span><span class="o">.</span><span class="n">value</span>
+            <span class="k">if</span> <span class="n">chosen</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                &lt;div class=&quot;feedback-card feedback-error&quot;&gt;</span>
+<span class="s2">                    &lt;h4&gt;</span><span class="si">{</span><span class="n">q_data</span><span class="p">[</span><span class="s1">&#39;prompt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/h4&gt;</span>
+<span class="s2">                    &lt;p&gt;&lt;strong&gt;No option selected.&lt;/strong&gt; Please pick a response.&lt;/p&gt;</span>
+<span class="s2">                &lt;/div&gt;</span>
+<span class="s2">                &quot;&quot;&quot;</span><span class="p">))</span>
+                <span class="k">continue</span>
+            <span class="n">chosen_letter</span> <span class="o">=</span> <span class="n">chosen</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">fb_text</span> <span class="o">=</span> <span class="n">q_data</span><span class="p">[</span><span class="s2">&quot;feedback&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">chosen_letter</span><span class="p">,</span> <span class="s2">&quot;No feedback available.&quot;</span><span class="p">)</span>           
+            <span class="k">if</span> <span class="n">chosen_letter</span> <span class="o">==</span> <span class="n">q_data</span><span class="p">[</span><span class="s2">&quot;answer&quot;</span><span class="p">]:</span>
+                <span class="n">score</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">feedback_class</span> <span class="o">=</span> <span class="s2">&quot;feedback-correct&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">feedback_class</span> <span class="o">=</span> <span class="s2">&quot;feedback-incorrect&quot;</span>          
+            <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            &lt;div class=&quot;feedback-card </span><span class="si">{</span><span class="n">feedback_class</span><span class="si">}</span><span class="s2">&quot;&gt;</span>
+<span class="s2">                &lt;h4&gt;</span><span class="si">{</span><span class="n">q_data</span><span class="p">[</span><span class="s1">&#39;prompt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/h4&gt;</span>
+<span class="s2">                &lt;p style=&quot;font-style: italic;&quot;&gt;You chose: &lt;strong&gt;</span><span class="si">{</span><span class="n">chosen</span><span class="si">}</span><span class="s2">&lt;/strong&gt;&lt;/p&gt;</span>
+<span class="s2">                &lt;p&gt;</span><span class="si">{</span><span class="n">fb_text</span><span class="si">}</span><span class="s2">&lt;/p&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &quot;&quot;&quot;</span><span class="p">))</span>       
+        <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&lt;h3&gt;Your Score: </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">question_widgets</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;/h3&gt;&quot;</span><span class="p">))</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">on_retake_click</span><span class="p">(</span><span class="n">_</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">feedback_output</span><span class="p">:</span>
+        <span class="n">clear_output</span><span class="p">()</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">question_box</span><span class="p">,</span> <span class="n">radio</span><span class="p">,</span> <span class="n">q_data</span><span class="p">)</span> <span class="ow">in</span> <span class="n">question_widgets</span><span class="p">:</span>
+        <span class="n">radio</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">submit_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">on_submit_click</span><span class="p">)</span>
+<span class="n">retake_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">on_retake_click</span><span class="p">)</span>
+<span class="n">buttons_box</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">submit_button</span><span class="p">,</span> <span class="n">retake_button</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">custom_css</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">questions_box</span><span class="p">,</span> <span class="n">buttons_box</span><span class="p">,</span> <span class="n">feedback_output</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>💡 You only need to edit the dictionary to add questions.</p>
+</section>
+<section id="step-3-add-the-notebook-to-github">
+<h3>Step 3: Add the Notebook to GitHub<a class="headerlink" href="#step-3-add-the-notebook-to-github" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Save the notebook as <code class="docutils literal notranslate"><span class="pre">mcq.ipynb</span></code> (or any other name).</p></li>
+<li><p>Place it inside the <code class="docutils literal notranslate"><span class="pre">interactives</span></code> folder in your GitHub repository.</p></li>
+<li><p>Commit and push to GitHub.</p></li>
+</ol>
+</section>
+<section id="step-4-create-the-mybinder-link">
+<h3>Step 4: Create the MyBinder Link<a class="headerlink" href="#step-4-create-the-mybinder-link" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Visit <strong>MyBinder</strong> (<a class="reference external" href="https://mybinder.org">https://mybinder.org</a>)</p></li>
+<li><p>Fill in the following:</p>
+<ul class="simple">
+<li><p>GitHUb repository: <code class="docutils literal notranslate"><span class="pre">https://github.com/your_user_name/your_reposotory</span></code></p></li>
+<li><p>Git ref (branch, tag, or commit): <code class="docutils literal notranslate"><span class="pre">main</span></code></p></li>
+<li><p>File to open (in JupyterLab): <code class="docutils literal notranslate"><span class="pre">voila/render/interactives/mcq.ipynb</span></code></p></li>
+<li><p>Make sure to switch from <code class="docutils literal notranslate"><span class="pre">File</span></code> to <code class="docutils literal notranslate"><span class="pre">URL</span></code></p></li>
+<li><p>Click <strong>Launch</strong> and test your quiz.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="step-5-add-the-binder-link-to-your-course-page">
+<h3>Step 5: Add the Binder Link to Your Course Page<a class="headerlink" href="#step-5-add-the-binder-link-to-your-course-page" title="Permalink to this heading">#</a></h3>
+<p>Copy your <strong>Binder URL</strong> and paste it into your course content. Example:</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>[<span class="nt">Click here to launch the the quiz on Binder</span>](<span class="na">https://mybinder.org/v2/gh/your_username/your_repository/main/?urlpath=voila%2Frender%2Finteractives%2Fmcq.ipynb</span>)
+</pre></div>
+</div>
+</section>
+<section id="step-6-add-required-packages">
+<h3>Step 6: Add Required Packages<a class="headerlink" href="#step-6-add-required-packages" title="Permalink to this heading">#</a></h3>
+<p>Go to your <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file in your repository and add the following lines:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>voila
+ipywidgets
+</pre></div>
+</div>
+<p>This ensures MyBinder installs everything needed to run your interactive quiz.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "DiLER-Digitell/tutorial_jupyter_books",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/3_create"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="interactive2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Making Your Book Truly Interactive</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../general-information/wrap-up.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Wrapping Up: Key Takeaways and Next Steps</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives 📍</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions"><strong>Instructions</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-set-up-your-repository"><strong>Step 1:</strong> Set Up Your repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-the-quiz-jupyter-notebook"><strong>Step 2:</strong> Create the Quiz Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-add-the-notebook-to-github">Step 3: Add the Notebook to GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-create-the-mybinder-link">Step 4: Create the MyBinder Link</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-add-the-binder-link-to-your-course-page">Step 5: Add the Binder Link to Your Course Page</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-add-required-packages">Step 6: Add Required Packages</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Felix Körber, Michael Ernst, Peer Herholz, Lucie Binder
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
